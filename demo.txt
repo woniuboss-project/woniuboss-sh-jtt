@@ -1,4 +1,3 @@
 goodday
 helloworld
 welcome
-China
