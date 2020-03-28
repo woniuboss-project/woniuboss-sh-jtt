@@ -1,0 +1,73 @@
+*** Settings ***
+Library           RequestsLibrary
+
+*** Variables ***
+&{headers}        Content-Type=application/json
+
+*** Test Cases ***
+login
+    [Template]    temp
+    000000    13817405021
+    abcd123    13817405021
+    000000    111112334
+
+add
+    [Template]    temp1
+    5
+    acnbfh
+    中山
+
+action
+    [Template]    temp2
+    分类_按利润
+    $%^&&*
+    acd123
+
+change
+    [Template]    temp3
+    586468
+    acnfk
+    ^&*((
+
+*** Keywords ***
+temp
+    [Arguments]    ${password}    ${phone}
+    ${body}    Create Dictionary    password=${password}    phone=${phone}    shop_id=null
+    Create Session    session    https://snailpet.com
+    ${resp}    Post Request    session    /v2/Passport/login    ${body}    headers=${headers}
+    Log    ${resp.text}
+    Should Be Equal    ${resp.text}    {"error":0,"data":{"token":{"token":"e52b3b23d3e6485fcc002f59a3e1af04","re_token":"715027a678221116cc96d1e7e94f4305","ttl":2592000,"user_id":27356},"user":{"user_id":27356,"phone":"13817405021","truename":"","nickname":"","password":"2d3bfa82712f15","sex":1,"created":1585294227,
+
+temp1
+    [Arguments]    ${nun}
+    ${body}    Create Dictionary    password=000000    phone=13817405021    shop_id=null
+    Create Session    session    https://snailpet.com
+    ${resp}    Post Request    session    /v2/Passport/login    ${body}    headers=${headers}
+    Sleep    2s
+    ${body}    Create Dictionary    exp_time=null    inPrice=10    mark=" "    number=${nun}    productId=2133956
+    ...    production_time=null    shelf_life=0    shop_id=17539    shopId=17539
+    ${resp}    Post Request    session    /v2/product/update/stocks    ${body}    headers=${headers}
+    Log    ${resp.text}
+    Should Be Equal    ${resp.text}    {"error":0,"data":"success","code":0,"message":""}
+
+temp2
+    [Arguments]    ${chose}
+    ${body}    Create Dictionary    password=000000    phone=13817405021    shop_id=null
+    Create Session    session    https://snailpet.com
+    ${resp}    Post Request    session    /v2/Passport/login    ${body}    headers=${headers}
+    Sleep    2s
+    ${body}    Create Dictionary    ex_current_page=报表    ex_kind=点击    ex_next_page=${chose}    ex_title=分类_按利润    shop_id=17539
+    ${resp}    Post Request    session    /v2/analysis_es/action    ${body}    headers=${headers}
+    Log    ${resp.text}
+    Should Be Equal    ${resp.text}    {"error":0,"data":"success","code":0,"message":""}
+
+temp3
+    [Arguments]    ${id}
+    ${body}    Create Dictionary    password=000000    phone=13817405021    shop_id=null
+    Create Session    session    https://snailpet.com
+    ${resp}    Post Request    session    /v2/Passport/login    ${body}    headers=${headers}
+    Sleep    2s
+    ${body}    Create Dictionary    cart_type=0    member_id=${id}    out_id=0    shop_id=17539
+    ${resp}    Post Request    session    /v2/cats/change_member    ${body}    headers=${headers}
+    Log    ${resp.text}
+    Should Be Equal    ${resp.text}    {"error":0,"data":{"products":[{"product_id":2133956,"activity_id":0,"activity_auto_id":0,"split_out_id":0,"shop_id":17539,"num":1,"batch_codes":null,"opt_user_id":27356,"percentage":0,"actual_price_sum":0,"discount":10,"pre_discount":0,"pre_price":0,"card_num":0,"user_card_info":null,"is_gift":0,"actual_price":0,"pre_actual_price":0,"category_name":"狗粮:狗冻干","stocks":3,"vip_plus":0,"is_vip_plus":0,"name":"狗","integral":0,"image_url":"https://file.snailpet.cn/f4/de/f4de347bc3688479f8ba03eb43492801.png?imageView2/1/w/80/h/80","out_price_sum":0,"opt_user_name":"店长","is_server":0,"out_price":0,"card_info":null,"activity_products":null,"activity_kind":0,"combination_type":0,"opt_users":[{"opt_user_id":27356,"opt_user_name":"店长","percentage":0,"amount":0,"product_id":2133956,"activity_id":0,"use_card_number":0,"card_id":0}],"version":1,"is_original":0,"not_wipe_zero_discount":10,"activity_infos":null,"marketing_discount_activity":null,"marketing_coupon_activity":null,"buy_gift_activity":null,"marketing_arrive_gift_activity":null,"marketing_arrive_reduce_activity":null,"is_choice":0,"product":null,"task_discount":0,"marketing_activity_group":null,"original_default":1,"sale_user_ids":"","category_id":840281,"p_category_id":840278,"del_buy_gift":0,"gift_kind":0,"gift_desc":"","buy_gift_stock_mark":"","set_gift_discount":0,"is_share_discount":0}],"shop_id":17539,"store_id":29404,"user_id":27356,"member_id":586468,"cart_type":0,"out_id":0,"member_info":{"member_id":586468,"shop_id":17539,"shop_level_id":0,"name":"李安","avatar":"","phone":"13817678988","sex":3,"mark":"","balance":0,"integral":0,"spending":0,"card_number":"","is_use_psw":0,"is_spending_msg":1,"level":null,"sum_arrear":0,"carts_num":0,"notice":null,"is_forever":0,"expire_time":0},"os":"windows","deposit":0,"deposit_pay_way":0,"total_num":1,"total_product_price":0,"total_price":0,"pre_total_price":0,"is_set_pre":0,"task_total_price":0,"pre_task_total_price":0,"total_discount_price":0,"pre_discount_price":0,"total_point":0,"pre_integral":0,"mark":"","order_time":0,"wipe_zero":0,"cache_total_price":0,"modify_total_price":0,"arrived_reduce_list":null,"arrived_gift_list":null,"coupon_list":null,"reduce_activity":null,"gift_activity":null,"coupon_activity":null,"buy_gift_activity_list":null,"reduce_activity_id":null,"gift_activity_id":null,"coupon_log_id":null,"save_time":1585358386,"address_id":0,"delivery_kind":0,"freight_price":0,"type":0,"mall_pay_ways":0,"share_discount":1,"no_share_discount_kind":0,"member_order_pay_way":0,"other_pay_share_discount":0,"share_discount_edit":0,"change_discount":0,"member_shopping_card":null,"total_weight":0},"code":0,"message":""}
