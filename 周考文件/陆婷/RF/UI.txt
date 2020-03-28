@@ -1,0 +1,42 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Test Cases ***
+action
+    [Template]    loginTemp
+    13817405021    000000    2
+    13817405021    asddf    2
+    1111111    000000    字符
+
+*** Keywords ***
+loginTemp
+    [Arguments]    ${phone}    ${pwd}    ${num}
+    Open Browser    https://snailpet.com/index    Chrome
+    Sleep    10s
+    Click Element    class=white_btn
+    Sleep    5s
+    Input Text    css=input.cla-tex:nth-child(1)    ${phone}
+    Input Password    css=input.cla-tex:nth-child(2)    ${pwd}
+    Click Element    class=ori-btn
+    Sleep    10s
+    Element Should Contain    link=安全退出    安全退出
+    sleep    5s
+    Click Element    class=word
+    sleep    5s
+    Element Should Contain    src=https://file.snailpet.cn/f4/de/f4de347bc3688479f8ba03eb43492801.png?imageView2/1/w/80/h/80    https://file.snailpet.cn/f4/de/f4de347bc3688479f8ba03eb43492801.png?imageView2/1/w/80/h/80
+    Click Element    css=select_button
+    sleep    2s
+    Element Should Contain    src=/assets/img/vip_girl.png    /assets/img/vip_girl.png
+    sleep    2s
+    Click Element    class=select pull-r
+    sleep    2s
+    Element Should Contain    css=select_button    纪月浩
+    sleep    2s
+    Click Image    src=/assets/img/menu/product_select.png
+    sleep    2s
+    Element Should Contain    link=入库    入库
+    Click Link    link=入库
+    Input Text    css=#idIconInput > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)    ${num}
+    Click Element    class=red_btn
+    Element Should Contain    link=8    8
+    [Teardown]    Close Browser
