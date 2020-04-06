@@ -1,0 +1,2421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Unit Test Report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>Unit Test Report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2020-04-01 16:58:28</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:02.576706</p>
+<p class='attribute'><strong>Status:</strong> Pass 43 Failure 27</p>
+
+<p class='description'></p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='failClass'>
+    <td>woniubossAPIDDT.bin.trainingtest.trainingTest</td>
+    <td>42</td>
+    <td>28</td>
+    <td>14</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',42)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_abandon_0_http_192_168_101_135_8080_WoniuBoss2_5_resource_abandonResource</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_abandon_1_http_192_168_101_135_8080_WoniuBoss2_5_resource_abandonResource</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_abandon_2_http_192_168_101_135_8080_WoniuBoss2_5_resource_abandonResource</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_abandon_3_http_192_168_101_135_8080_WoniuBoss2_5_resource_abandonResource</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        fail</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 111, in test_train_abandon
+    self.assertEqual(actual, expect)
+AssertionError: 'abandon success' != 'abandon fail'
+- abandon success
++ abandon fail
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 111, in test_train_abandon
+    self.assertEqual(actual, expect)
+AssertionError: 'abandon success' != 'abandon fail'
+- abandon success
++ abandon fail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_add_0_http_192_168_101_135_8080_WoniuBoss2_5_cons_addCus</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+        pass</a>
+
+    <div id='div_pt1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.5: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.6' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_add_1_http_192_168_101_135_8080_WoniuBoss2_5_cons_addCus</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.6')" >
+        fail</a>
+
+    <div id='div_ft1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.6: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 42, in test_train_add
+    self.assertEqual(actual,expect)
+AssertionError: 'add success' != 'already added'
+- add success
++ already added
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 42, in test_train_add
+    self.assertEqual(actual,expect)
+AssertionError: 'add success' != 'already added'
+- add success
++ already added
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.7' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_add_2_http_192_168_101_135_8080_WoniuBoss2_5_cons_addCus</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.7')" >
+        fail</a>
+
+    <div id='div_ft1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.7: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 42, in test_train_add
+    self.assertEqual(actual,expect)
+AssertionError: 'already added' != 'add fail'
+- already added
++ add fail
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 42, in test_train_add
+    self.assertEqual(actual,expect)
+AssertionError: 'already added' != 'add fail'
+- already added
++ add fail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.8' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_allQuery_0_http_192_168_101_135_8080_WoniuBoss2_5_allot_queryResources</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.8')" >
+        fail</a>
+
+    <div id='div_ft1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.8: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 181, in test_train_allQuery
+    self.assertEqual(actual, expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 181, in test_train_allQuery
+    self.assertEqual(actual, expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_allQuery_1_http_192_168_101_135_8080_WoniuBoss2_5_allot_queryResources</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.9')" >
+        pass</a>
+
+    <div id='div_pt1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.9: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.10' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_allQuery_2_http_192_168_101_135_8080_WoniuBoss2_5_allot_queryResources</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.10')" >
+        fail</a>
+
+    <div id='div_ft1.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.10: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 181, in test_train_allQuery
+    self.assertEqual(actual, expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 181, in test_train_allQuery
+    self.assertEqual(actual, expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_allQuery_3_http_192_168_101_135_8080_WoniuBoss2_5_allot_queryResources</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.11')" >
+        pass</a>
+
+    <div id='div_pt1.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.11: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.12' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_allot_0_http_192_168_101_135_8080_WoniuBoss2_5_allot_allotProportion</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.12')" >
+        fail</a>
+
+    <div id='div_ft1.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.12: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 217, in test_train_allot
+    self.assertEqual(actual, expect)
+AssertionError: 'allot fail' != 'allot ok'
+- allot fail
++ allot ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 217, in test_train_allot
+    self.assertEqual(actual, expect)
+AssertionError: 'allot fail' != 'allot ok'
+- allot fail
++ allot ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_allot_1_http_192_168_101_135_8080_WoniuBoss2_5_allot_allotProportion</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.13')" >
+        pass</a>
+
+    <div id='div_pt1.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.13: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_edit_0_http_192_168_101_135_8080_WoniuBoss2_5_resource_modifyCusInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.14')" >
+        pass</a>
+
+    <div id='div_pt1.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.14: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.15' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_edit_1_http_192_168_101_135_8080_WoniuBoss2_5_resource_modifyCusInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.15')" >
+        fail</a>
+
+    <div id='div_ft1.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.15: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 99, in test_train_edit
+    self.assertEqual(actual, expect)
+AssertionError: 'edit success' != 'edit fail'
+- edit success
++ edit fail
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 99, in test_train_edit
+    self.assertEqual(actual, expect)
+AssertionError: 'edit success' != 'edit fail'
+- edit success
++ edit fail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.16' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_edit_2_http_192_168_101_135_8080_WoniuBoss2_5_resource_modifyCusInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.16')" >
+        fail</a>
+
+    <div id='div_ft1.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.16: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 99, in test_train_edit
+    self.assertEqual(actual, expect)
+AssertionError: 'edit success' != 'edit fail'
+- edit success
++ edit fail
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 99, in test_train_edit
+    self.assertEqual(actual, expect)
+AssertionError: 'edit success' != 'edit fail'
+- edit success
++ edit fail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.17' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_follow_0_http_192_168_101_135_8080_WoniuBoss2_5_resource_saveTrackingRecord</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.17')" >
+        fail</a>
+
+    <div id='div_ft1.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.17: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 56, in test_train_follow
+    self.assertEqual(actual,expect)
+AssertionError: 'flow  fail' != 'flow ok'
+- flow  fail
++ flow ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 56, in test_train_follow
+    self.assertEqual(actual,expect)
+AssertionError: 'flow  fail' != 'flow ok'
+- flow  fail
++ flow ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_follow_1_http_192_168_101_135_8080_WoniuBoss2_5_resource_saveTrackingRecord</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.18')" >
+        pass</a>
+
+    <div id='div_pt1.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.18: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_follow_2_http_192_168_101_135_8080_WoniuBoss2_5_resource_saveTrackingRecord</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.19')" >
+        pass</a>
+
+    <div id='div_pt1.19' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.19').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.19: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.20' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_owner_0_http_192_168_101_135_8080_WoniuBoss2_5_public_ownResource</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.20')" >
+        fail</a>
+
+    <div id='div_ft1.20' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.20').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.20: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 255, in test_train_owner
+    self.assertEqual(actual, expect)
+AssertionError: 'owner fail' != 'owner ok'
+- owner fail
++ owner ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 255, in test_train_owner
+    self.assertEqual(actual, expect)
+AssertionError: 'owner fail' != 'owner ok'
+- owner fail
++ owner ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_owner_1_http_192_168_101_135_8080_WoniuBoss2_5_transmit_updateTransmit</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.21')" >
+        pass</a>
+
+    <div id='div_pt1.21' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.21').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.21: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_owner_2_http_192_168_101_135_8080_WoniuBoss2_5_transmit_updateTransmit</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.22')" >
+        pass</a>
+
+    <div id='div_pt1.22' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.22').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.22: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_pubQuery_0_http_192_168_101_135_8080_WoniuBoss2_5_public_queryCusByInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.23')" >
+        pass</a>
+
+    <div id='div_pt1.23' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.23').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.23: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_pubQuery_1_http_192_168_101_135_8080_WoniuBoss2_5_public_queryCusByInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.24')" >
+        pass</a>
+
+    <div id='div_pt1.24' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.24').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.24: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.25' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_pubQuery_2_http_192_168_101_135_8080_WoniuBoss2_5_public_queryCusByInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.25')" >
+        fail</a>
+
+    <div id='div_ft1.25' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.25').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.25: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 243, in test_train_pubQuery
+    self.assertEqual(actual, expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 243, in test_train_pubQuery
+    self.assertEqual(actual, expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_query_0_http_192_168_101_135_8080_WoniuBoss2_5_resource_queryCusByCusInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.26')" >
+        pass</a>
+
+    <div id='div_pt1.26' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.26').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.26: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_query_1_http_192_168_101_135_8080_WoniuBoss2_5_resource_queryCusByCusInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.27')" >
+        pass</a>
+
+    <div id='div_pt1.27' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.27').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.27: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_query_2_http_192_168_101_135_8080_WoniuBoss2_5_resource_queryCusByCusInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.28')" >
+        pass</a>
+
+    <div id='div_pt1.28' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.28').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.28: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_query_3_http_192_168_101_135_8080_WoniuBoss2_5_resource_queryCusByCusInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.29')" >
+        pass</a>
+
+    <div id='div_pt1.29' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.29').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.29: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_see_0_http_192_168_101_135_8080_WoniuBoss2_5_resource_showResumeById</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.30')" >
+        pass</a>
+
+    <div id='div_pt1.30' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.30').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.30: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.31' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_see_0_http_192_168_101_135_8080_WoniuBoss2_5_transmit_updateTransmit</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.31')" >
+        fail</a>
+
+    <div id='div_ft1.31' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.31').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.31: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 164, in test_train_see
+    self.assertEqual(actual, expect)
+AssertionError: 'commit fail' != 'commit ok'
+- commit fail
++ commit ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 164, in test_train_see
+    self.assertEqual(actual, expect)
+AssertionError: 'commit fail' != 'commit ok'
+- commit fail
++ commit ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_see_1_http_192_168_101_135_8080_WoniuBoss2_5_resource_showResumeById</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.32')" >
+        pass</a>
+
+    <div id='div_pt1.32' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.32').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.32: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_see_1_http_192_168_101_135_8080_WoniuBoss2_5_transmit_updateTransmit</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.33')" >
+        pass</a>
+
+    <div id='div_pt1.33' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.33').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.33: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_see_2_http_192_168_101_135_8080_WoniuBoss2_5_resource_showResumeById</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.34')" >
+        pass</a>
+
+    <div id='div_pt1.34' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.34').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.34: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.35' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_see_2_http_192_168_101_135_8080_WoniuBoss2_5_transmit_updateTransmit</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.35')" >
+        pass</a>
+
+    <div id='div_pt1.35' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.35').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.35: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.36' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_submit_0_http_192_168_101_135_8080_WoniuBoss2_5_allot_saveResourceToPool</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.36')" >
+        fail</a>
+
+    <div id='div_ft1.36' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.36').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.36: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 197, in test_train_submit
+    self.assertEqual(actual, expect)
+AssertionError: 'submit fail' != 'submit ok'
+- submit fail
++ submit ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 197, in test_train_submit
+    self.assertEqual(actual, expect)
+AssertionError: 'submit fail' != 'submit ok'
+- submit fail
++ submit ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.37' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_submit_1_http_192_168_101_135_8080_WoniuBoss2_5_allot_saveResourceToPool</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.37')" >
+        pass</a>
+
+    <div id='div_pt1.37' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.37').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.37: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.38' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_submit_2_http_192_168_101_135_8080_WoniuBoss2_5_allot_saveResourceToPool</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.38')" >
+        pass</a>
+
+    <div id='div_pt1.38' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.38').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.38: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.39' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_transQuery_0_http_192_168_101_135_8080_WoniuBoss2_5_transmit_queryResourcesByInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.39')" >
+        pass</a>
+
+    <div id='div_pt1.39' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.39').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.39: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.40' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_transQuery_1_http_192_168_101_135_8080_WoniuBoss2_5_transmit_queryResourcesByInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.40')" >
+        pass</a>
+
+    <div id='div_pt1.40' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.40').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.40: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.41' class='none'>
+    <td class='failCase'><div class='testcase'>test_train_transQuery_2_http_192_168_101_135_8080_WoniuBoss2_5_transmit_queryResourcesByInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.41')" >
+        fail</a>
+
+    <div id='div_ft1.41' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.41').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.41: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 140, in test_train_transQuery
+    self.assertEqual(actual, expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\trainingtest.py", line 140, in test_train_transQuery
+    self.assertEqual(actual, expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.42' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_train_transQuery_3_http_192_168_101_135_8080_WoniuBoss2_5_transmit_queryResourcesByInfo</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.42')" >
+        pass</a>
+
+    <div id='div_pt1.42' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.42').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.42: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>woniubossAPIDDT.bin.backstest.backsTest</td>
+    <td>28</td>
+    <td>15</td>
+    <td>13</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',28)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_add_0_http_192_168_101_135_8080_WoniuBoss2_5_res_saveAddRes</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.2' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_add_1_http_192_168_101_135_8080_WoniuBoss2_5_res_saveAddRes</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.2')" >
+        fail</a>
+
+    <div id='div_ft2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.2: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 39, in test_back_add
+    self.assertEqual(actual,expect)
+AssertionError: 'add success' != 'add fail'
+- add success
++ add fail
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 39, in test_back_add
+    self.assertEqual(actual,expect)
+AssertionError: 'add success' != 'add fail'
+- add success
++ add fail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.3' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_add_2_http_192_168_101_135_8080_WoniuBoss2_5_res_saveAddRes</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.3')" >
+        fail</a>
+
+    <div id='div_ft2.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.3: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 39, in test_back_add
+    self.assertEqual(actual,expect)
+AssertionError: 'add success' != 'add fail'
+- add success
++ add fail
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 39, in test_back_add
+    self.assertEqual(actual,expect)
+AssertionError: 'add success' != 'add fail'
+- add success
++ add fail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_del_0_http_192_168_101_135_8080_WoniuBoss2_5_res_removeNode</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.4')" >
+        fail</a>
+
+    <div id='div_ft2.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.4: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 63, in test_back_del
+    self.assertEqual(actual, expect)
+AssertionError: 'del fail' != 'del ok'
+- del fail
++ del ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 63, in test_back_del
+    self.assertEqual(actual, expect)
+AssertionError: 'del fail' != 'del ok'
+- del fail
++ del ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_del_1_http_192_168_101_135_8080_WoniuBoss2_5_res_removeNode</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.5')" >
+        pass</a>
+
+    <div id='div_pt2.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.5: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_dicAdd_0_http_192_168_101_135_8080_WoniuBoss2_5_option_saveAddDictOption</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.6')" >
+        pass</a>
+
+    <div id='div_pt2.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.6: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_dicAdd_1_http_192_168_101_135_8080_WoniuBoss2_5_option_saveAddDictOption</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.7')" >
+        pass</a>
+
+    <div id='div_pt2.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.7: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.8' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_dicAdd_2_http_192_168_101_135_8080_WoniuBoss2_5_option_saveAddDictOption</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.8')" >
+        fail</a>
+
+    <div id='div_ft2.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.8: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 140, in test_back_dicAdd
+    self.assertEqual(actual, expect)
+AssertionError: 'add ok' != 'add fail'
+- add ok
++ add fail
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 140, in test_back_dicAdd
+    self.assertEqual(actual, expect)
+AssertionError: 'add ok' != 'add fail'
+- add ok
++ add fail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_dicEdit_0_http_192_168_101_135_8080_WoniuBoss2_5_option_saveEditDictDetail</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.9')" >
+        pass</a>
+
+    <div id='div_pt2.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.9: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.10' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_dicEdit_1_http_192_168_101_135_8080_WoniuBoss2_5_option_saveEditDictDetail</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.10')" >
+        fail</a>
+
+    <div id='div_ft2.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.10: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 168, in test_back_dicEdit
+    self.assertEqual(actual, expect)
+AssertionError: 'edit ok' != 'edit fail'
+- edit ok
++ edit fail
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 168, in test_back_dicEdit
+    self.assertEqual(actual, expect)
+AssertionError: 'edit ok' != 'edit fail'
+- edit ok
++ edit fail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.11' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_edit_0_http_192_168_101_135_8080_WoniuBoss2_5_res_updateNode</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.11')" >
+        fail</a>
+
+    <div id='div_ft2.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.11: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 51, in test_back_edit
+    self.assertEqual(actual,expect)
+AssertionError: 'edit fail' != 'edit ok'
+- edit fail
++ edit ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 51, in test_back_edit
+    self.assertEqual(actual,expect)
+AssertionError: 'edit fail' != 'edit ok'
+- edit fail
++ edit ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_edit_1_http_192_168_101_135_8080_WoniuBoss2_5_res_updateNode</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.12')" >
+        pass</a>
+
+    <div id='div_pt2.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.12: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.13' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_edit_2_http_192_168_101_135_8080_WoniuBoss2_5_res_updateNode</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.13')" >
+        fail</a>
+
+    <div id='div_ft2.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.13: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 51, in test_back_edit
+    self.assertEqual(actual,expect)
+AssertionError: 'edit fail' != 'edit ok'
+- edit fail
++ edit ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 51, in test_back_edit
+    self.assertEqual(actual,expect)
+AssertionError: 'edit fail' != 'edit ok'
+- edit fail
++ edit ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.14' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_licen_0_http_192_168_101_135_8080_WoniuBoss2_5_role_saveSetRole</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.14')" >
+        fail</a>
+
+    <div id='div_ft2.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.14: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 100, in test_back_licen
+    self.assertEqual(actual, expect)
+AssertionError: 'licen fail' != 'licen ok'
+- licen fail
++ licen ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 100, in test_back_licen
+    self.assertEqual(actual, expect)
+AssertionError: 'licen fail' != 'licen ok'
+- licen fail
++ licen ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_licen_1_http_192_168_101_135_8080_WoniuBoss2_5_role_saveSetRole</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.15')" >
+        pass</a>
+
+    <div id='div_pt2.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.15: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.16' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_query_0_http_192_168_101_135_8080_WoniuBoss2_5_user_queryUser</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.16')" >
+        fail</a>
+
+    <div id='div_ft2.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.16: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 126, in test_back_query
+    self.assertEqual(actual,expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 126, in test_back_query
+    self.assertEqual(actual,expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.17' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_query_1_http_192_168_101_135_8080_WoniuBoss2_5_user_queryUser</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.17')" >
+        fail</a>
+
+    <div id='div_ft2.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.17: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 126, in test_back_query
+    self.assertEqual(actual,expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 126, in test_back_query
+    self.assertEqual(actual,expect)
+AssertionError: 'query fail' != 'query ok'
+- query fail
++ query ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_query_2_http_192_168_101_135_8080_WoniuBoss2_5_user_queryUser</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.18')" >
+        pass</a>
+
+    <div id='div_pt2.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.18: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_rolAdd_0_http_192_168_101_135_8080_WoniuBoss2_5_role_saveAddRole</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.19')" >
+        pass</a>
+
+    <div id='div_pt2.19' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.19').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.19: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_rolAdd_1_http_192_168_101_135_8080_WoniuBoss2_5_role_saveAddRole</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.20')" >
+        pass</a>
+
+    <div id='div_pt2.20' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.20').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.20: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.21' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_rolAdd_2_http_192_168_101_135_8080_WoniuBoss2_5_role_saveAddRole</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.21')" >
+        fail</a>
+
+    <div id='div_ft2.21' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.21').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.21: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 88, in test_back_rolAdd
+    self.assertEqual(actual, expect)
+AssertionError: 'rolAdd ok' != 'rolAdd fail'
+- rolAdd ok
++ rolAdd fail
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 88, in test_back_rolAdd
+    self.assertEqual(actual, expect)
+AssertionError: 'rolAdd ok' != 'rolAdd fail'
+- rolAdd ok
++ rolAdd fail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.22' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_setup_0__http_192_168_101_135_8080_WoniuBoss2_5_role_saveSetRole</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.22')" >
+        fail</a>
+
+    <div id='div_ft2.22' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.22').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.22: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 75, in test_back_setup
+    self.assertEqual(actual, expect)
+AssertionError: 'set fail' != 'set ok'
+- set fail
++ set ok
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 75, in test_back_setup
+    self.assertEqual(actual, expect)
+AssertionError: 'set fail' != 'set ok'
+- set fail
++ set ok
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_setup_1__http_192_168_101_135_8080_WoniuBoss2_5_role_saveSetRole</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.23')" >
+        pass</a>
+
+    <div id='div_pt2.23' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.23').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.23: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_setup_2__http_192_168_101_135_8080_WoniuBoss2_5_role_saveSetRole</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.24')" >
+        pass</a>
+
+    <div id='div_pt2.24' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.24').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.24: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_status_0_http_192_168_101_135_8080_WoniuBoss2_5_option_updateDictTypeStatus</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.25')" >
+        pass</a>
+
+    <div id='div_pt2.25' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.25').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.25: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_status_1_http_192_168_101_135_8080_WoniuBoss2_5_option_updateDictTypeStatus</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.26')" >
+        pass</a>
+
+    <div id='div_pt2.26' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.26').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.26: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_back_status_2_http_192_168_101_135_8080_WoniuBoss2_5_option_updateDictTypeStatus</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.27')" >
+        pass</a>
+
+    <div id='div_pt2.27' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.27').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.27: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.28' class='none'>
+    <td class='failCase'><div class='testcase'>test_back_status_3_http_192_168_101_135_8080_WoniuBoss2_5_option_updateDictTypeStatus</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.28')" >
+        fail</a>
+
+    <div id='div_ft2.28' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.28').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.28: Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 153, in test_back_status
+    self.assertEqual(actual, expect)
+AssertionError: 'statu ok' != 'statu fail'
+- statu ok
++ statu fail
+
+Traceback (most recent call last):
+  File "C:\python 3.7\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "C:\Users\Administrator\PycharmProjects\untitled12\woniubossAPIDDT\bin\backstest.py", line 153, in test_back_status
+    self.assertEqual(actual, expect)
+AssertionError: 'statu ok' != 'statu fail'
+- statu ok
++ statu fail
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>70</td>
+    <td>43</td>
+    <td>27</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
