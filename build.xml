@@ -1,7 +1,7 @@
 <project default="all">
     <!-- ant-jmeter.jar comes with jmeter, be sure this is the release you have
     -->
-    <property name="jmeter-home" value="/usr/local/apache-jmeter-5.1.1" />
+    <property name="jmeter-home" value="/usr/local/apache-jmeter-5.2.1" />
     <path id="ant.jmeter.classpath">
         <pathelement
         location="${jmeter-home}/extras/ant-jmeter-1.1.1.jar" />
